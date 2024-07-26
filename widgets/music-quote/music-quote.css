@@ -1,0 +1,11 @@
+.widget.music-quote {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  #quote {
+    margin-top: 20px;
+    font-size: 18px;
+    font-style: italic;
+  }
+  

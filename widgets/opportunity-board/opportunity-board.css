@@ -1,0 +1,45 @@
+/* opportunity-board.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.opportunity-board {
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#opportunity-list {
+    margin-bottom: 20px;
+}
+
+.opportunity-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.opportunity-item h3 {
+    margin-top: 0;
+}
+
+#add-opportunity {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#add-opportunity:hover {
+    background-color: #0056b3;
+}

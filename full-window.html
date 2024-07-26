@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Notice Board</title>
+    <link rel="stylesheet" href="css/full-window.css">
+    <style>
+        /* Import a stylish font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+header h1 {
+    font-size: 3em; /* Larger font size for the main heading */
+    font-weight: bold; /* Make the text bold */
+    color: #fff; /* Set text color to white */
+    text-align: center; /* Center-align the heading */
+    margin-bottom: 20px; /* Add space below the heading */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for a 3D effect */
+    background: linear-gradient(135deg, #f6f6f6, #e0e0e0); /* Gradient background */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text color transparent to show the gradient */
+    font-family: 'Roboto', sans-serif; /* Change font family to Roboto */
+    padding: 10px; /* Add padding around the text */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for a floating effect */
+}
+
+        #spreadsheet-grid {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 10px 0; /* Optional: Adds vertical padding to the container */
+        }
+        
+        #spreadsheet-grid a {
+            flex: 0 0 auto;
+            margin-right: 20px; /* Adds space between images */
+        }
+        
+        #spreadsheet-grid img {
+            width: 200px;
+            height: 150px;
+            border: 2px solid #000; /* Adds a border around the images */
+            border-radius: 5px; /* Optional: Rounds the corners of the border */
+            margin-right: 20px; /* Adds space between images */
+            display: block; /* Ensures that images are block elements to respect margins */
+        }
+        .container {
+        
+      
+            background-size: cover;
+            padding: 20px;
+            min-height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: url('assets/images/image.png') ;
+        }
+        #pomodoro-timer {
+            text-align: center;
+            margin-bottom: 0px;
+            padding: 20px;
+            background: url('assets/images/background.png') ;
+            background-size: cover;
+            border-radius: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+         #timer-display {
+            font-size: 48px;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 5px solid #61c0bf;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: white;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+           
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 50px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ff6f61;
+            color: pink;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: pink;
+        }
+
+        .time-setting-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 0px;
+            background: url('assets/images/background.png') ;
+            text-align: center;
+            
+            padding: 10px;
+           
+            background-size: cover;
+        }
+
+        .time-setting {
+            margin: 0 20px;
+            text-align: center;
+            padding: 10px;
+            background-color: pink;
+            border: 4px solid #61c0bf;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            
+        }
+
+        .time-setting button {
+            display: block;
+            margin: 5px auto;
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #61c0bf;
+            color: black;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .time-setting button:hover {
+            background-color: black;
+           
+        }
+
+        .time-setting span {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Digital Notice Board</h1>
+        </header>
+        <main>
+            <section id="widgets">
+                <!-- Google Slides Widget -->
+                <div class="widget" id="google-slides-widget">
+                    <h2>Google Slides</h2>
+                    
+                    <div id="slide-grid">
+                        <a href="https://docs.google.com/presentation/d/1QPj5yxyKkT5N1jJJ1iP5i5D14AOlJ82aqDl2m9ZIOoQ/edit#slide=id.gc6f59039d_0_0" target="_blank">
+                         <img src="assets/images/slide2.png" alt="Slide 2" id="slide-image"> 
+                    </a>
+                    
+                    </div>
+                    <button id="create-slide">Create New Slide</button>
+                </div>
+
+                <!-- Google Spreadsheet Widget -->
+                <div class="widget" id="google-spreadsheet-widget">
+                    <h2>Google Spreadsheet</h2>
+                    <div id="spreadsheet-grid">
+                        <a href="https://docs.google.com/spreadsheets/d/1t2JX2GhHrIry0xYrYu0son-fnJFezEjSW5iah4JJGX8/edit?gid=1386834576#gid=1386834576" target="_blank">
+                            <img src="assets/images/todo.png" alt="Spreadsheet 1" id="spreadsheet-image1"> 
+                        </a>
+                        <a href="https://docs.google.com/spreadsheets/d/1A_CCmwbCwxWqjYVFmlWG0aCE5zNTAqtbajLGNq9-Hgc/edit?gid=1695479590#gid=1695479590" target="_blank">
+                            <img src="assets/images/bud.png" alt="Spreadsheet 2" id="spreadsheet-image2"> 
+                        </a>
+                        <a href="https://docs.google.com/spreadsheets/d/1oP_5tbtqN1l0t3Z-_gGSf547YYREO3hDAbMH-teAHN0/edit?gid=0#gid=0" target="_blank">
+                            <img src="assets/images/fin.png" alt="Spreadsheet 3" id="spreadsheet-image3"> 
+                        </a>
+                    </div>
+                    
+                </div>
+
+                <!-- Google Form Widget -->
+                <div class="widget" id="google-form-widget">
+                    <h2>Google Form</h2>
+                    <div id="form-grid">
+                        <!-- Links to existing Google Forms -->
+                        <a href="https://kovida09.github.io/survey-form/" target="_blank">
+                            <img src="assets/images/sur.png" alt="Form 1" class="form-image">
+                        </a>
+                        <a href="https://kovida09.github.io/reg-form/" target="_blank">
+                            <img src="assets/images/reg.png" alt="Form 2" class="form-image">
+                        </a>
+                        <a href="https://kovida09.github.io/job-application/" target="_blank">
+                            <img src="assets/images/job.png" alt="Form 3" class="form-image">
+                        </a>
+                    </div>
+                    <button id="create-form">Create New Form</button>
+                </div>
+
+                <!-- Pomodoro Timer Widget -->
+                <div class="widget" id="pomodoro-timer-widget">
+                    <h2>Pomodoro Timer</h2>
+                    <div id="pomodoro-timer">
+                        <span id="timer-display">25:00</span>
+                        <button id="start-timer">Start</button>
+                        <button id="pause-timer">Pause</button>
+                        <button id="reset-timer">Reset</button>
+                    </div>
+                    <div class="time-setting-container">
+                        <div class="time-setting">
+                            <span>Work time</span>
+                            <button id="increase-work-time">+</button>
+                            <span id="work-time">25 min</span>
+                            <button id="decrease-work-time">-</button>
+                        </div>
+                        <div class="time-setting">
+                            <span>Break time</span>
+                            <button id="increase-break-time">+</button>
+                            <span id="break-time">5 min</span>
+                            <button id="decrease-break-time">-</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Music Issue Tracker Widget -->
+                <div class="widget" id="music-issue-tracker-widget">
+                    <h2>Music - "JAM-Tastic Vibes"</h2>
+                    <div id="music-options">
+                        <div class="music-item">
+                            <img src="assets/images/spotify-icon.png" alt="Spotify" class="music-image spotify-image">
+                            <button id="spotify-link" class="music-button">Open Spotify</button>
+                        </div>
+                        <div class="music-item">
+                            <img src="assets/images/youtube-music-icon.png" alt="YouTube Music" class="music-image youtube-image">
+                            <button id="youtube-music-link" class="music-button">Open YouTube Music</button>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- DGC - Daily Growth Checklist Widget -->
+                <div class="widget" id="dgc-widget">
+                    <h2>Daily Growth Checklist</h2>
+                    <div id="checklist-container">
+                        <ul id="checklist">
+                            <!-- Initially visible tasks -->
+                            <li><input type="checkbox" id="task1"> <label for="task1">Morning Exercise</label></li>
+                            <li><input type="checkbox" id="task2"> <label for="task2">Team Meeting</label></li>
+                            <li><input type="checkbox" id="task3"> <label for="task3">Project Work</label></li>
+                            <li><input type="checkbox" id="task4"> <label for="task4">Read Industry News</label></li>
+                        </ul>
+                        <!-- Container for additional tasks -->
+                        <div id="more-tasks-container" style="display: none;">
+                            <ul id="more-tasks">
+                                <!-- Additional tasks will be loaded dynamically -->
+                            </ul>
+                        </div>
+                        <!-- Button to toggle additional tasks -->
+                        <button id="toggle-tasks-button">Show More Tasks</button>
+                
+                        <!-- Section to add new tasks -->
+                        <div class="add-task-container">
+                            <input type="text" id="new-task" placeholder="Enter new task">
+                            <button id="add-task">Add Task</button>
+                        </div>
+                    </div>
+                </div>
+
+               <div id="announcement-controls">
+    <button id="add-announcement-button">Add Announcement</button>
+</div>
+
+<div id="announcement-form-container" style="display: none;">
+    <h2>Make an Announcement</h2>
+    <form id="create-announcement-form">
+        
+        <div class="form-group">
+            <label for="announcement-title">Title:</label>
+            <input type="text" id="announcement-title" name="announcement-title" placeholder="Enter the title" required>
+        </div>
+        <div class="form-group">
+            <label for="announcement-content">Content:</label>
+            <textarea id="announcement-content" name="announcement-content" placeholder="Enter the content" required></textarea>
+        </div>
+        <div class="form-actions">
+            <button type="submit" id="add-announcement-button">Add Announcement</button>
+            <button type="button" id="cancel-announcement-button">Cancel</button>
+        </div>
+    </form>
+</div>
+                
+                <!-- Announcements - Scrolling Text Widget -->
+                <div id="announcements-container">
+                    <div id="announcements-header">
+                        <h2>Announcements</h2>
+                        
+                    </div>
+                    <div id="announcements-content">
+                        <!-- Example Announcements -->
+                        <div class="announcement-item">
+                            <h3>Holiday Notice</h3>
+                            <p>Our office will be closed on July 4th for Independence Day. Enjoy the holiday!</p>
+                        </div>
+                        <div class="announcement-item">
+                            <h3>New Policy Update</h3>
+                            <p>Effective from August 1st, the company has updated its remote work policy. Please review the new guidelines in the HR portal.</p>
+                        </div>
+                        <div class="announcement-item">
+                            <h3>Upcoming Team Building Event</h3>
+                            <p>Join us for a team-building event on August 15th at the Downtown Park. Please RSVP by August 10th.</p>
+                        </div>
+                        <div class="announcement-item">
+                            <h3>Office Maintenance</h3>
+                            <p>Scheduled maintenance on the office network will take place on August 20th from 2 PM to 4 PM. There may be intermittent connectivity issues during this time.</p>
+                        </div>
+                        <div class="announcement-item">
+                            <h3>Annual Performance Reviews</h3>
+                            <p>Performance reviews for the year will be conducted from September 1st to September 15th. Please check your calendar for your scheduled review time.</p>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- Steps/Health Tracker Widget -->
+                <div id="step-tracker-container">
+                    <img id="step-tracker-icon" src="assets/images/track.png" alt="Step Tracker Icon">
+                    <button id="step-tracker-button">Step Tracker</button>
+                </div>
+            
+                <!-- Modal for Step Tracker -->
+                <div id="step-tracker-modal" class="modal">
+                    <div class="modal-content">
+                        <span id="close-modal" class="close">&times;</span>
+                        <h2>Step Tracker</h2>
+                        <div class="step-info">
+                            <label for="step-input">Add Steps:</label>
+                            <input type="number" id="step-input" placeholder="Enter steps">
+                            <button id="add-steps-button">Add Steps</button>
+                        </div>
+                        <div class="step-info">
+                            <label for="goal-input">Set Goal:</label>
+                            <input type="number" id="goal-input" placeholder="Enter goal">
+                            <button id="set-goal-button">Set Goal</button>
+                        </div>
+                        <div id="step-summary">
+                            <p id="steps-taken">0 steps taken</p>
+                            <p id="steps-goal">Goal: 10000 steps</p>
+                            <div id="step-progress">
+                                <div id="progress-bar"></div>
+                            </div>
+                            <p id="goal-message"></p>
+                            <p id="motivation-message"></p>
+                        </div>
+                        <button id="reset-button">Reset Steps</button>
+                    </div>
+                </div>
+                
+                <!-- Opportunity Board Widget -->
+                <div class="opportunity-board" id="opportunity-board">
+                    <!-- Example Opportunities -->
+                    <div class="opportunity-item">
+                        <h3>Volunteer for Community Outreach</h3>
+                        <p>Join our community outreach program and make a difference in the local area.</p>
+                        <button class="remove-button">Remove</button>
+                    </div>
+                    <div class="opportunity-item">
+                        <h3>Organize Team Building Event</h3>
+                        <p>Plan and execute a team-building event to enhance team cohesion and morale.</p>
+                        <button class="remove-button">Remove</button>
+                    </div>
+                    <!-- More opportunities can be added here -->
+                </div>
+            
+                <button class="add-opportunity-button" id="add-opportunity-button">Add Opportunity</button>
+            
+                <!-- Opportunity Form Container -->
+                <div class="opportunity-form-container" id="opportunity-form-container">
+                    <h2>Add New Opportunity</h2>
+                    <form id="opportunity-form">
+                        <label for="opportunity-title">Title:</label>
+                        <input type="text" id="opportunity-title" name="title" required>
+                        <label for="opportunity-description">Description:</label>
+                        <textarea id="opportunity-description" name="description" rows="4" required></textarea>
+                        <button type="submit">Add Opportunity</button>
+                        <button type="button" class="cancel-button" id="cancel-opportunity-button">Cancel</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>© 2024 Digital Notice Board</p>
+        </footer>
+    </div>
+    <script src="js/full-window.js"></script>
+</body>
+</html>

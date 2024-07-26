@@ -1,0 +1,33 @@
+.widget.steps-health-tracker {
+    padding: 20px;
+  }
+  
+  .widget.steps-health-tracker form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .widget.steps-health-tracker input {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .widget.steps-health-tracker button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  #steps-summary {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  

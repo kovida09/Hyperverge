@@ -1,0 +1,14 @@
+.widget.announcements {
+    padding: 20px;
+  }
+  
+  #announcement-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #announcement-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  

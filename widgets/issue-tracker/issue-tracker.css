@@ -1,0 +1,29 @@
+.widget.issue-tracker {
+    padding: 20px;
+  }
+  
+  .widget.issue-tracker form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .widget.issue-tracker input,
+  .widget.issue-tracker textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .widget.issue-tracker button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  

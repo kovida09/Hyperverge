@@ -1,0 +1,1209 @@
+/* Reset default styles */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Improved font */
+    color: #161515;
+}
+
+header h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: #222;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Roboto', sans-serif; /* Font for header */
+}
+
+/* Container styling */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Left column for announcements, right column for widgets */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Widget section styling */
+#widget-section {
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 widgets per row */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Widget grid styling */
+.widgets {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 widgets per row */
+    gap: 20px;
+}
+
+/* Individual widget styling */
+.widget {
+    background: linear-gradient(145deg, #b4c1d0, #ffffff); /* Gradient background for a modern look */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: #333;
+    font-size: 1.1em;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+.widget:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Header styling */
+header {
+    background-color: #0c0b0b; /* Light background for the header */
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Announcement styling */
+#announcement-section {
+    background-color: #f1f1f1; /* Light background for announcements */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif; /* Font for announcements */
+}
+
+/* Button styling */
+button {
+    background-color: #007bff; /* Primary button color */
+    color: #ffffff; /* Text color for buttons */
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5); /* Custom focus ring */
+}
+
+/* Link styling */
+a {
+    color: #007bff; /* Link color */
+    text-decoration: none;
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+a:hover {
+    color: #0056b3; /* Darker shade on hover */
+}
+
+
+
+/* Specific Adjustments for Announcement Container */
+#announcements-container {
+    position: relative;
+    max-height: 400px; /* Adjust as needed */
+    overflow-y: auto; /* Enable scrolling if content exceeds max height */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Announcement Items */
+.announcement-item {
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 6px;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fcb69f, #ffdd94);
+    background-size: 200% 200%;
+    animation: gradient 10s ease infinite;
+    color: #7e0707;
+    font-size: 14px;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Adjustments for Scroll Buttons */
+#scroll-to-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    display: none; /* Hidden by default */
+    z-index: 1000; /* Ensure it’s above other elements */
+}
+
+
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+main {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+
+/* Container for the widget */
+.widget-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax value as needed */
+    gap: 16px;
+    padding: 16px;
+    background-color: #f8f9fa; /* Adjust background color as needed */
+    border: 1px solid #ddd; /* Optional: Border for the container */
+    border-radius: 8px; /* Optional: Rounded corners for the container */
+    overflow: hidden; /* Prevent scrollbars */
+    height: 100vh; /* Adjust to ensure the container fits within the viewport */
+}
+
+/* Individual widget item */
+.widget-item {
+    background-color: #ffffff; /* Widget background color */
+    border: none; /* Remove border */
+    border-radius: 8px; /* Optional: Rounded corners for each widget */
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow for visual separation */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative; /* Ensure proper positioning */
+    height: 100%; /* Ensure widget takes full height of grid cell */
+}
+
+.widget-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+}
+
+.widget-item h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.widget-item p {
+    color: #555;
+}
+
+/* Button inside widget */
+.widget-item button {
+    display: flex;
+    align-items: center;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.widget-item button:hover {
+    background-color: #0056b3;
+}
+
+.widget-item button i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+
+#pomodoro-timer {
+    text-align: center;
+}
+
+#timer-display {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+button {
+    margin: 5px;
+}
+
+#music-options {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#music-options button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#music-options button:hover {
+    background-color: #0056b3;
+}
+
+#scrolling-text {
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    animation: scroll 15s linear infinite;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+iframe {
+    border: 0;
+}
+/* Existing styles ... */
+#slide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    overflow-y: auto; /* Add vertical scroll if needed */
+}
+
+#slide-grid img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.slide-item a {
+    display: block;
+    text-decoration: none;
+}
+
+.slide-item img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#create-slide {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#create-slide:hover {
+    background-color: #0056b3;
+}
+#form-grid {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 0; /* Optional: Adds vertical padding to the container */
+}
+
+#form-grid a {
+    flex: 0 0 auto;
+    margin-right: 20px; /* Adds space between images */
+}
+
+.form-image {
+    width: 200px;
+    height: 150px;
+    border: 2px solid #000; /* Adds a border around the images */
+    border-radius: 5px; /* Optional: Rounds the corners of the border */
+    margin-right: 20px; /* Adds space between images */
+    display: block; /* Ensures that images are block elements to respect margins */
+}
+
+#google-form-widget button {
+    margin-top: 20px; /* Adds space above the button */
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue background color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#google-form-widget button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+#music-issue-tracker-widget {
+    padding: 10px;
+    background-image: url('assets/images/music.png'); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+    min-height: 200px; /* Increase height */
+    position:reative;
+}
+
+#music-issue-tracker-widget h2 {
+    margin: 0;
+    padding: 5px;
+    font-size: 23px; /* Increase font size */
+    text-align: center;
+    color: #fff; /* Ensure text is visible */
+    background-color: rgba(241, 4, 4, 0.5); /* Semi-transparent background */
+    border-radius: 1px;
+    z-index: 10;
+    position: relative;
+    box-shadow: 0 4px 4px rgba(240, 4, 4, 0.2); /* Optional: Adds shadow for better visibility */
+}
+
+#music-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.music-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.music-image {
+    border: 2px solid #090c0c;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(212, 94, 94, 0.2);
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.spotify-image {
+    width: 80px;
+    height: auto;
+}
+
+.youtube-image {
+    width: 100px;
+    height: auto;
+}
+
+.music-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff6f61;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.music-button:hover {
+    background-color: #d84b3f;
+}
+/* Daily Growth Checklist Container */
+#checklist-container {
+    margin: 20px;
+}
+
+/* Task List Styles */
+#checklist, #more-tasks {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual Task Item Styles */
+#checklist li, #more-tasks li {
+    background-color: #e8f4f8; /* Light blue background for tasks */
+    border: 1px solid #0d1921; /* Light gray-blue border */
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-family: Arial, sans-serif; /* Ensures font consistency */
+    font-size: 16px;
+    color: #100f0f; /* Dark text color */
+}
+
+/* Task Checkbox and Label */
+#checklist li input[type="checkbox"], #more-tasks li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Add Task Input */
+#new-task {
+    padding: 10px;
+    border: 1px solid #0c0c0c; /* Border matching task items */
+    border-radius: 5px;
+    width: calc(100% - 130px); /* Adjust width to fit next to button */
+    font-size: 16px;
+}
+
+/* Add Task Button */
+#add-task {
+    background-color: #4CAF50; /* Green background */
+    border: none;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px; /* Space between input and button */
+}
+
+#add-task:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* More Tasks Container */
+#more-tasks-container {
+    display: none; /* Initially hidden */
+    margin-top: 20px;
+    
+}
+/* General button styles */
+#toggle-tasks-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect */
+#toggle-tasks-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+/* Focus effect */
+#toggle-tasks-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus ring */
+}
+
+/* Disabled state */
+#toggle-tasks-button:disabled {
+    background-color: #d6d6d6; /* Light gray background */
+    color: #a0a0a0; /* Gray text */
+    cursor: not-allowed;
+}
+
+/* Icon (if using) */
+#toggle-tasks-button i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+/* Container for the announcements */
+#announcements-container {
+    position: relative;
+    width: 100%;
+    max-height: 400px; /* Adjust as needed */
+    overflow: hidden;
+    border: 2px solid #007bff; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #79aee8; /* Light background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    padding: 20px;
+    box-sizing: border-box;
+    animation: pulse 3s infinite; /* Pulsing effect for container */
+}
+
+/* Header of the announcement section */
+#announcements-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative;
+}
+/* Announcement Item */
+.announcement-item {
+    background-color: #f0f8ff; /* Light background color for announcements */
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Announcement Item Heading */
+.announcement-item h3 {
+    color: #180a60; /* Heading color */
+    font-size: 22px; /* Increase font size for emphasis */
+    font-weight: bold; /* Make the font bold */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glowing effect */
+    animation: blink 1.5s step-start infinite; /* Blinking effect */
+    margin: 0;
+    font-family: 'Roboto', sans-serif; /* Use the new font */
+}
+
+/* Scroll down button */
+#scroll-down-button {
+    background-color: #eef0f3; /* Button color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: bounce 1s infinite; /* Bouncing effect */
+}
+
+/* Hover effect for the button */
+#scroll-down-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Announcement items */
+#announcements-content {
+    max-height: 300px; /* Adjust as needed */
+    overflow-y: auto; /* Scrollable content */
+    padding-right: 10px; /* Space for scrollbar */
+    position: relative;
+}
+
+/* Individual announcement styling */
+.announcement-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fcb69f, #ffdd94); /* Gradient background */
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite; /* Gradient animation */
+    color: #7e0707; /* Text color */
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+}
+/* Announcement Item */
+.announcement-item {
+    margin-bottom: 15px; /* Reduced bottom margin */
+    padding: 8px; /* Reduced padding */
+    border-radius: 6px; /* Reduced border radius */
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fcb69f, #ffdd94); /* Gradient background */
+    background-size: 200% 200%; /* Adjusted for smaller size */
+    animation: gradient 10s ease infinite; /* Gradient animation */
+    color: #7e0707; /* Text color */
+    font-size: 14px; /* Reduced font size */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+}
+
+/* Announcement heading */
+.announcement-item h3 {
+    color: #180a60; /* Heading color */
+    font-size: 18px; /* Reduced font size */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7); /* Glowing effect */
+    animation: blink 1.5s step-start infinite; /* Blinking effect */
+    margin: 0;
+    font-family: 'Open Sans', sans-serif; 
+}
+
+/* Announcement paragraph */
+.announcement-item p {
+    color: #d51818; /* Text color */
+    font-size: 14px; /* Reduced font size */
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    white-space: nowrap;
+    overflow: hidden;
+    animation: marquee 15s linear infinite; /* Moving text effect */
+    margin: 8px 0 0; /* Reduced top margin */
+}
+
+/* Blinking animation for the heading */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Gradient animation */
+@keyframes gradient {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* Moving text animation */
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Scroll to Top Button */
+#scroll-to-top-button {
+    position: fixed;
+    bottom: 20px; /* Position from the bottom */
+    right: 20px; /* Position from the right */
+    background-color: #007bff; /* Button color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 50%;
+    padding: 10px; /* Reduced padding */
+    cursor: pointer;
+    font-size: 20px; /* Reduced font size */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: background-color 0.3s, transform 0.3s;
+    display: none; /* Hidden by default */
+    z-index: 1000; /* Ensure it’s above other elements */
+}
+
+/* Hover effect for the button */
+#scroll-to-top-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Announcement Form */
+#announcement-form {
+    margin: 15px; /* Reduced margin */
+    padding: 15px; /* Reduced padding */
+    background-color: #e6f7ff; /* Light blue background */
+    border-radius: 6px; /* Reduced border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+}
+
+#announcement-form h2 {
+    color: #003366; /* Darker color for the form heading */
+    font-family: 'Roboto', sans-serif; /* Consistent font */
+}
+
+#announcement-form label {
+    display: block;
+    margin: 8px 0 4px; /* Adjusted margins */
+}
+
+#announcement-form input,
+#announcement-form textarea {
+    width: 100%;
+    padding: 8px; /* Reduced padding */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 8px; /* Reduced margin */
+}
+
+#announcement-form button {
+    padding: 8px 16px; /* Reduced padding */
+    background-color: #0044cc; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px; /* Reduced font size */
+}
+
+#announcement-form button:hover {
+    background-color: #0033aa; /* Darker blue on hover */
+}
+
+/* Delete Announcement Button */
+.delete-announcement-button {
+    padding: 4px 8px; /* Reduced padding */
+    background-color: #cc0000; /* Red background color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px; /* Reduced font size */
+}
+
+.delete-announcement-button:hover {
+    background-color: #990000; /* Darker red on hover */
+}
+/* Announcement Form Container */
+#announcement-form-container {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure it’s above other elements */
+    overflow: hidden;
+}
+
+/* Form Heading */
+#create-announcement-form h2 {
+    margin-top: 0;
+    color: #003366;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Form Labels */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Form Inputs */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Textarea Specific Styles */
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Submit and Cancel Buttons */
+.form-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#add-announcement-button {
+    background-color: #0044cc; /* Button color */
+    color: white;
+}
+
+#add-announcement-button:hover {
+    background-color: #0033aa; /* Darker blue on hover */
+}
+
+#cancel-announcement-button {
+    background-color: #cc0000; /* Red background color */
+    color: white;
+}
+
+#cancel-announcement-button:hover {
+    background-color: #990000; /* Darker red on hover */
+}
+
+
+/* Step Tracker Icon and Button */
+#step-tracker-container {
+    text-align: center;
+    margin: 20px;
+    background: rgb(193, 193, 231);
+}
+
+#step-tracker-icon {
+    width: 80px; /* Adjust size as needed */
+    height: auto;
+    border: 2px solid #ddd; /* Border around the icon */
+    border-radius: 8px; /* Rounded corners for the border */
+    cursor: pointer; /* Cursor to indicate clickable item */
+}
+
+#step-tracker-button {
+    display: block;
+    margin: 10px auto;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#step-tracker-button:hover {
+    background-color: #0056b3;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form Styles */
+.step-info {
+    margin-bottom: 20px;
+}
+
+.step-info label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.step-info input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: calc(100% - 100px); /* Adjust width as needed */
+}
+
+.step-info button {
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.step-info button:hover {
+    background-color: #218838;
+}
+
+/* Progress Bar */
+#step-progress {
+    background: #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 20px;
+    margin-top: 10px;
+}
+
+#progress-bar {
+    background: #28a745;
+    height: 100%;
+    width: 0;
+    transition: width 0.3s;
+}
+
+/* Reset Button */
+#reset-button {
+    padding: 8px 16px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#reset-button:hover {
+    background-color: #c82333;
+}
+
+
+
+/* Opportunity Board Styles */
+.opportunity-board {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.opportunity-item {
+    background: #b5d5e3;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.opportunity-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.opportunity-item p {
+    margin: 5px 0;
+}
+
+.opportunity-item .remove-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.opportunity-item .remove-button:hover {
+    background: #c0392b;
+}
+
+/* Add Opportunity Button */
+.add-opportunity-button {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.add-opportunity-button:hover {
+    background: #2980b9;
+}
+
+/* Opportunity Form Container */
+.opportunity-form-container {
+    display: none;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.opportunity-form-container h2 {
+    margin-top: 0;
+}
+
+.opportunity-form-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.opportunity-form-container input, 
+.opportunity-form-container textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.opportunity-form-container button {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.opportunity-form-container button:hover {
+    background: #2980b9;
+}
+
+.opportunity-form-container .cancel-button {
+    background: #e74c3c;
+}
+
+.opportunity-form-container .cancel-button:hover {
+    background: #c0392b;
+}
+#spreadsheet-grid {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 0; /* Optional: Adds vertical padding to the container */
+}
+
+#spreadsheet-grid a {
+    flex: 0 0 auto;
+    margin-right: 20px; /* Adds space between images */
+}
+
+#spreadsheet-grid img {
+    width: 200px;
+    height: 150px;
+    border: 2px solid #000; /* Adds a border around the images */
+    border-radius: 5px; /* Optional: Rounds the corners of the border */
+    margin-right: 20px; /* Adds space between images */
+    display: block; /* Ensures that images are block elements to respect margins */
+}
+.container {
+
+
+    background-size: cover;
+    padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#pomodoro-timer {
+    text-align: center;
+    margin-bottom: 0px;
+    padding: 20px;
+    background: url('assets/images/background.png') ;
+    background-size: cover;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+ #timer-display {
+    font-size: 48px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 5px solid #61c0bf;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    color: white;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   
+}
+
+button {
+    margin: 5px;
+    padding: 10px 50px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff6f61;
+    color: pink;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: pink;
+}
+
+.time-setting-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+    background: url('assets/images/background.png') ;
+    text-align: center;
+    
+    padding: 10px;
+   
+    background-size: cover;
+}
+
+.time-setting {
+    margin: 0 20px;
+    text-align: center;
+    padding: 10px;
+    background-color: pink;
+    border: 4px solid #61c0bf;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+}
+
+.time-setting button {
+    display: block;
+    margin: 5px auto;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #61c0bf;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.time-setting button:hover {
+    background-color: black;
+   
+}
+
+.time-setting span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+
